@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      background-color: #333;
+      color: white;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffcc00;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      margin-left: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+    }
+    nav ul li a:hover {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    section {
+      padding: 30px;
+    }
+    #about img {
+      width: 150px;
+      border-radius: 50%;
+    }
+    .skills-list, .projects-list, .recommendations-list {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .skill, .project, .recommendation {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      width: 200px;
+      text-align: center;
+    }
+    .skill img {
+      width: 40px;
+      height: 40px;
+      display: block;
+      margin: auto;
+    }
+    .home-icon {
+      font-size: 24px;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+    form input, form textarea, form button {
+      display: block;
+      margin: 10px 0;
+      width: 300px;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Khushi Dixit</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Project details</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#recommendations">Recommendations</a></li>
+        <li><span class="home-icon">🏠</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Me -->
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="C:\Users\LENOVO\Desktop\WhatsApp Image 2024-08-12 at 9.21.45 AM.jpeg" alt="Profile Picture">
+    <p>Hello! I am Khushi Dixit, a Computer Science Engineering student passionate about Cybersecurity, Cloud Computing, and Problem Solving. I enjoy building projects that combine technology and creativity.</p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-list">
+      <div class="skill"><img src="https://img.icons8.com/color/48/python.png"><p>Python</p></div>
+      <div class="skill"><img src="https://img.icons8.com/color/48/c-plus-plus-logo.png"><p>C++</p></div>
+      <div class="skill"><img src="https://img.icons8.com/color/48/html-5.png"><p>HTML</p></div>
+      <div class="skill"><img src="https://img.icons8.com/color/48/css3.png"><p>CSS</p></div>
+      <div class="skill"><img src="https://img.icons8.com/ios-filled/50/hacker.png"><p>Cybersecurity</p></div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects-list">
+      <div class="project">
+        <h3>Optimized Pathfinding Visualizer</h3>
+        <p>A C++ app using SFML to visualize algorithms like Dijkstra and A*.</p>
+      </div>
+      <div class="project">
+        <h3>Secure File Encryption Tool</h3>
+        <p>A Python app for encrypting and decrypting files using modern cryptography.</p>
+      </div>
+      <div class="project">
+        <h3>ShareWithUs</h3>
+        <p>A blockchain-based mood tracking and sharing app with patent filed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendations -->
+  <section id="recommendations">
+    <h2>Recommendations</h2>
+    <div class="recommendations-list" id="recommendations-list">
+      <div class="recommendation">Khushi is a quick learner and always curious to explore new technologies.</div>
+      <div class="recommendation">She has excellent problem-solving skills and explains concepts clearly.</div>
+      <div class="recommendation">Her cybersecurity knowledge makes her a valuable team member in projects.</div>
+    </div>
+
+    <h3>Leave a Recommendation</h3>
+    <form id="recommendation-form">
+      <textarea id="newRec" placeholder="Write your recommendation here"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <script>
+    const form = document.getElementById('recommendation-form');
+    const recList = document.getElementById('recommendations-list');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const newRec = document.getElementById('newRec').value;
+      if(newRec.trim() !== ""){
+        const div = document.createElement('div');
+        div.className = 'recommendation';
+        div.innerText = newRec;
+        recList.appendChild(div);
+        alert("Thank you for leaving a recommendation!");
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
